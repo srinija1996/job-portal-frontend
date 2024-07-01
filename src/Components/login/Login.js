@@ -33,8 +33,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   const redirectToRegister = () => {
-    if (userToRegister === "Job Seeker") navigate("/sign-up/job-seeker");
-    else navigate("/sign-up/employer");
+    if (userToRegister === "Job Seeker") {
+      localStorage.setItem("userType", JSON.stringify("Job Seeker"));
+      navigate("/sign-up");
+    } else {
+      localStorage.setItem("userType", JSON.stringify("Employer"));
+      navigate("/sign-up");
+    }
     setOpen(false);
   };
   console.log({ userToRegister });
@@ -146,18 +151,6 @@ const Login = () => {
                     />
                   </RadioGroup>
                 </FormControl>
-                {/* <Button
-                  variant="contained"
-                  onClick={() => navigate("/sign-up/job-seeker")}
-                >
-                  Job Seeker
-                </Button>
-                <Button
-                  variant="contained"
-                  onClick={() => navigate("/sign-up/employer")}
-                >
-                  Employer
-                </Button> */}
                 <DialogActions>
                   <Button variant="contained" onClick={redirectToRegister}>
                     OK

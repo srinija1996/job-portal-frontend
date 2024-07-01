@@ -4,7 +4,7 @@ import Navbar from "./Components/navbar/Navbar";
 import Login from "./Components/login/Login";
 import { ThemeProvider } from "@mui/material";
 import theme from "./utils/theme";
-import JobSeeker from "./Components/register/JobSeeker";
+import JobSeeker from "./Components/register/Register";
 
 const App = () => {
   return (
@@ -15,13 +15,15 @@ const App = () => {
             height: "100vh",
             width: "100vw",
             backgroundColor: "whitesmoke",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
           <BrowserRouter>
             <Navbar />
             <Routes>
               <Route path="/login" element={<Login />} />
-              <Route path="/sign-up/job-seeker" element={<JobSeeker />} />
+              <Route path="/sign-up" element={<JobSeeker />} />
             </Routes>
           </BrowserRouter>
         </div>
